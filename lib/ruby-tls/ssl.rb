@@ -48,7 +48,7 @@ module RubyTls
             OPENSSL_V1_1 = true
             OPENSSL_INIT_LOAD_SSL_STRINGS = 0x200000
             OPENSSL_INIT_NO_LOAD_SSL_STRINGS = 0x100000
-            attach_function :OPENSSL_init_ssl, [:uint64_t, :pointer], :int
+            attach_function :OPENSSL_init_ssl, [:uint64, :pointer], :int
 
             attach_function :SSL_get_state, [:ssl], :int
             def self.SSL_is_init_finished(ssl)
