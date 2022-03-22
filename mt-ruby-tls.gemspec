@@ -7,15 +7,14 @@ require "mt-ruby-tls/version"
 Gem::Specification.new do |s|
     s.name        = "mt-ruby-tls"
     s.version     = MTRubyTls::VERSION
-    s.authors     = ["Mapotempo"]
-    s.email       = ["mapotempo@gmail.com"]
+    s.authors     = ["Giallombardo Nathan"]
+    s.email       = ["nathan.giallombardo@mapotempo.com"]
     s.licenses    = ["MIT"]
     s.homepage    = "https://github.com/Mapotempo/mt-ruby-tls"
     s.summary     = "Abstract TLS for Ruby"
     s.description = <<-EOF
         Allows transport layers outside Ruby TCP to be secured.
     EOF
-
 
     s.add_dependency 'ffi-compiler',    '>= 1.0', '< 2.0'
     s.add_dependency 'concurrent-ruby', '~> 1.0'
