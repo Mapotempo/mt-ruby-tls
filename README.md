@@ -1,19 +1,19 @@
-# ruby-tls
+# mt-ruby-tls
 
-Ruby-TLS decouples the management of encrypted communications, putting you in charge of the transport layer. It can be used as an alternative to Ruby's SSLSocket.
+mt-ruby-tls decouples the management of encrypted communications, putting you in charge of the transport layer. It can be used as an alternative to Ruby's SSLSocket.
 
-[![Build Status](https://travis-ci.org/cotag/ruby-tls.svg?branch=master)](https://travis-ci.org/cotag/ruby-tls)
+[![Build Status](https://travis-ci.org/cotag/mt-ruby-tls.svg?branch=master)](https://travis-ci.org/cotag/mt-ruby-tls)
 
 
 ## Install the gem
 
 Install it with [RubyGems](https://rubygems.org/)
 
-    gem install ruby-tls
+    gem install mt-ruby-tls
 
 or add this to your Gemfile if you use [Bundler](http://gembundler.com/):
 
-    gem "ruby-tls"
+    gem "mt-ruby-tls"
 
 
 Windows users will require an installation of OpenSSL (32bit or 64bit matching the Ruby installation)
@@ -23,7 +23,7 @@ Windows users will require an installation of OpenSSL (32bit or 64bit matching t
 
 ```ruby
 require 'rubygems'
-require 'ruby-tls'
+require 'mt-ruby-tls'
 
 class transport
   def initialize
@@ -38,7 +38,7 @@ class transport
       # fallback: "http/1.1", # Optional fallback to a default protocol when either client or server doesn't support ALPN
       # client_ca: '/file/path.pem'
     }
-    @ssl_layer = RubyTls::SSL::Box.new(is_server, callback_obj, options)
+    @ssl_layer = MTRubyTls::SSL::Box.new(is_server, callback_obj, options)
   end
 
   def close_cb

@@ -2,15 +2,15 @@
 # -*- encoding: utf-8 -*-
 
 $:.push File.expand_path("../lib", __FILE__)
-require "ruby-tls/version"
+require "mt-ruby-tls/version"
 
 Gem::Specification.new do |s|
-    s.name        = "ruby-tls"
-    s.version     = RubyTls::VERSION
-    s.authors     = ["Stephen von Takach"]
-    s.email       = ["steve@cotag.me"]
+    s.name        = "mt-ruby-tls"
+    s.version     = MTRubyTls::VERSION
+    s.authors     = ["Mapotempo"]
+    s.email       = ["mapotempo@gmail.com"]
     s.licenses    = ["MIT"]
-    s.homepage    = "https://github.com/cotag/ruby-tls"
+    s.homepage    = "https://github.com/Mapotempo/mt-ruby-tls"
     s.summary     = "Abstract TLS for Ruby"
     s.description = <<-EOF
         Allows transport layers outside Ruby TCP to be secured.
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
     s.add_development_dependency 'yard',  '~> 0.9'
 
 
-    s.files = Dir["{lib}/**/*"] + %w(ruby-tls.gemspec README.md)
+    s.files = Dir["{lib}/**/*"] + %w(mt-ruby-tls.gemspec README.md)
     s.test_files = Dir["spec/**/*"]
     s.extra_rdoc_files = ["README.md"]
 

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module RubyTls
+module MTRubyTls
     VERSION = '2.4.0'
 end

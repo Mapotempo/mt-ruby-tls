@@ -1,12 +1,12 @@
-require 'ruby-tls'
+require 'mt-ruby-tls'
 
 
-describe RubyTls do
+describe MTRubyTls do
 
     class Client2
         def initialize(client_data, dir)
             @client_data = client_data
-            @ssl = RubyTls::SSL::Box.new(false, self, private_key: dir + 'client.key', cert_chain: dir + 'client.crt', host_name: 'just.testing.com')
+            @ssl = MTRubyTls::SSL::Box.new(false, self, private_key: dir + 'client.key', cert_chain: dir + 'client.crt', host_name: 'just.testing.com')
         end
 
         attr_reader :ssl
@@ -35,7 +35,7 @@ describe RubyTls do
         end
     end
 
-    describe RubyTls::SSL::Box do
+    describe MTRubyTls::SSL::Box do
         before :each do
             @dir = File.dirname(File.expand_path(__FILE__)) + '/'
             @cert_from_file = File.read(@dir + 'client.crt')
@@ -50,7 +50,7 @@ describe RubyTls do
                 def initialize(client, server_data)
                     @client = client
                     @server_data = server_data
-                    @ssl = RubyTls::SSL::Box.new(true, self, verify_peer: true)
+                    @ssl = MTRubyTls::SSL::Box.new(true, self, verify_peer: true)
                 end
 
                 attr_reader :ssl
@@ -105,7 +105,7 @@ describe RubyTls do
                 def initialize(client, server_data)
                     @client = client
                     @server_data = server_data
-                    @ssl = RubyTls::SSL::Box.new(true, self, host_name: 'just.testing.com')
+                    @ssl = MTRubyTls::SSL::Box.new(true, self, host_name: 'just.testing.com')
                 end
 
                 attr_reader :ssl
@@ -152,7 +152,7 @@ describe RubyTls do
                 def initialize(client, server_data)
                     @client = client
                     @server_data = server_data
-                    @ssl = RubyTls::SSL::Box.new(true, self, host_name: 'testing.com')
+                    @ssl = MTRubyTls::SSL::Box.new(true, self, host_name: 'testing.com')
                 end
 
                 attr_reader :ssl
@@ -217,7 +217,7 @@ describe RubyTls do
                 def initialize(client, server_data)
                     @client = client
                     @server_data = server_data
-                    @ssl = RubyTls::SSL::Box.new(true, self, verify_peer: true)
+                    @ssl = MTRubyTls::SSL::Box.new(true, self, verify_peer: true)
                 end
 
                 attr_reader :ssl

@@ -1,10 +1,10 @@
-require 'ruby-tls'
+require 'mt-ruby-tls'
 
-if RubyTls::SSL::ALPN_SUPPORTED
+if MTRubyTls::SSL::ALPN_SUPPORTED
 
-    describe RubyTls do
+    describe MTRubyTls do
 
-        describe RubyTls::SSL::Box do
+        describe MTRubyTls::SSL::Box do
 
             it "should be able to negotiate a protocol" do
                 @server_data = []
@@ -16,7 +16,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                     def initialize(client_data, interleaved)
                         @client_data = client_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(false, self, {
+                        @ssl = MTRubyTls::SSL::Box.new(false, self, {
                             protocols: ["http/1.1", :h2]
                         })
                     end
@@ -59,7 +59,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                         @client = client
                         @server_data = server_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(true, self, {
+                        @ssl = MTRubyTls::SSL::Box.new(true, self, {
                             protocols: [:h2, "http/1.1"]
                         })
                     end
@@ -118,7 +118,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                     def initialize(client_data, interleaved)
                         @client_data = client_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(false, self, {
+                        @ssl = MTRubyTls::SSL::Box.new(false, self, {
                             protocols: ["h2c"]
                         })
                     end
@@ -161,7 +161,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                         @client = client
                         @server_data = server_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(true, self, {
+                        @ssl = MTRubyTls::SSL::Box.new(true, self, {
                             protocols: ["http/1.1", "h2"]
                         })
                     end
@@ -220,7 +220,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                     def initialize(client_data, interleaved)
                         @client_data = client_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(false, self, {
+                        @ssl = MTRubyTls::SSL::Box.new(false, self, {
                             protocols: ["h2c"]
                         })
                     end
@@ -263,7 +263,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                         @client = client
                         @server_data = server_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(true, self)
+                        @ssl = MTRubyTls::SSL::Box.new(true, self)
                     end
 
                     attr_reader :ssl
@@ -320,7 +320,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                     def initialize(client_data, interleaved)
                         @client_data = client_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(false, self)
+                        @ssl = MTRubyTls::SSL::Box.new(false, self)
                     end
 
                     attr_reader :ssl
@@ -361,7 +361,7 @@ if RubyTls::SSL::ALPN_SUPPORTED
                         @client = client
                         @server_data = server_data
                         @interleaved = interleaved
-                        @ssl = RubyTls::SSL::Box.new(true, self, {
+                        @ssl = MTRubyTls::SSL::Box.new(true, self, {
                             protocols: ["h2", "http/1.1"],
                             fallback: "http/1.1"
                         })

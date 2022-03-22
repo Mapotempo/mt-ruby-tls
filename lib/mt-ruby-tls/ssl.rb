@@ -6,7 +6,7 @@ require 'thread'
 require 'concurrent'
 
 
-module RubyTls
+module MTRubyTls
     module SSL
         extend FFI::Library
         if FFI::Platform.windows?

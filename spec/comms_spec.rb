@@ -1,17 +1,17 @@
-require 'ruby-tls'
+require 'mt-ruby-tls'
 
-describe RubyTls do
+describe MTRubyTls do
 
-    describe RubyTls::SSL::Box do
+    describe MTRubyTls::SSL::Box do
 
         it "fails when passed an unsupported TLS version" do
             expect {
-                RubyTls::SSL::Box.new(false, nil, version: :TLS1_4)
+                MTRubyTls::SSL::Box.new(false, nil, version: :TLS1_4)
             }.to raise_error(/is unsupported/)
         end
 
         it "succeeds when passed a supported TLS version" do
-            RubyTls::SSL::Box.new(false, nil, version: :TLS1_2) if RubyTls::SSL::VERSION_SUPPORTED
+            MTRubyTls::SSL::Box.new(false, nil, version: :TLS1_2) if MTRubyTls::SSL::VERSION_SUPPORTED
         end
 
         it "should be able to send and receive encrypted comms" do
@@ -24,7 +24,7 @@ describe RubyTls do
                 def initialize(client_data, interleaved)
                     @client_data = client_data
                     @interleaved = interleaved
-                    @ssl = RubyTls::SSL::Box.new(false, self)
+                    @ssl = MTRubyTls::SSL::Box.new(false, self)
                 end
 
                 attr_reader :ssl
@@ -65,7 +65,7 @@ describe RubyTls do
                     @client = client
                     @server_data = server_data
                     @interleaved = interleaved
-                    @ssl = RubyTls::SSL::Box.new(true, self)
+                    @ssl = MTRubyTls::SSL::Box.new(true, self)
                 end
 
                 attr_reader :ssl
